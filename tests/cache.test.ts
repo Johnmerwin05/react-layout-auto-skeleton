@@ -1,0 +1,2 @@
+import { afterEach,describe,expect,it } from 'vitest'; import { skeletonCache } from '../src';
+describe('skeletonCache',()=>{afterEach(()=>skeletonCache.clear());it('stores and invalidates snapshots',()=>{const item={width:1,height:1,nodes:[],signature:'x',createdAt:1};skeletonCache.set('card',item);expect(skeletonCache.get('card')).toBe(item);skeletonCache.delete('card');expect(skeletonCache.get('card')).toBeUndefined()})});
